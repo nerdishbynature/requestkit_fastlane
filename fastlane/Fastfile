@@ -61,25 +61,6 @@ lane :test_framework do |options|
   
 end
 
-desc "Builds the example file"
-desc "Set `xcodebuild` action environment variables to control build configuration"
-desc "####Example:"
-desc "```\nfastlane build_example configuration:Debug --env ios91\n```"
-desc "####Options"
-desc " * **`configuration`**: The build configuration to use."
-desc ""
-lane :build_example do |options|
-  
-  xcodebuild(
-    workspace: ENV["EXAMPLE_WORKSPACE"],
-    scheme: ENV["EXAMPLE_SCHEME"],
-    build: true,
-    destination: ENV["EXAMPLE_DESTINATION"],
-    configuration: options[:configuration],
-    build_settings: [["ONLY_ACTIVE_ARCH", "NO"]] 
-  )
-end
-
 desc "Produces code coverage information"
 desc "Set `scan` action environment variables to control test configuration"
 desc "####Example:"
